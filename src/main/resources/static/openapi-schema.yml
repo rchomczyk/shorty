@@ -1,0 +1,107 @@
+openapi: "3.0.0"
+info:
+  title: "shorty"
+  description: "Microservice, which allows for creating shortcuts leading to specified location."
+  version: "1.0.0"
+paths:
+  /shortcuts:
+    put:
+      summary: Creates shortcut
+      operationId: createShortcut
+      requestBody:
+        $ref: "#/components/requestBodies/body-shortcut-dto"
+      responses:
+        200:
+          $ref: "#/components/responses/200-with-shortcut-dto"
+  /shortcuts/{shortcutId}:
+    parameters:
+      - $ref: "#/components/parameters/path-parameter-shortcut-id"
+    get:
+      summary: Resolves shortcut by id
+      operationId: findShortcutById
+      responses:
+        200:
+          $ref: "#/components/responses/200-with-shortcut-dto"
+        404:
+          $ref: "#/components/responses/404"
+  /shortcuts/by-ids/{shortcutIds}:
+    parameters:
+      - $ref: "#/components/parameters/path-parameter-shortcut-ids"
+    get:
+      summary: Resolves shortcuts by ids
+      operationId: findShortcutsByIds
+      responses:
+        200:
+          $ref: "#/components/responses/200-with-shortcut-dtos"
+  /shortcuts/follow/{shortcutSource}:
+    parameters:
+      - $ref: "#/components/parameters/path-parameter-shortcut-source"
+    get:
+      summary: Follows shortcut
+      operationId: followShortcut
+      responses:
+        303:
+          $ref: "#/components/responses/302"
+        404:
+          $ref: "#/components/responses/404"
+components:
+  parameters:
+    path-parameter-shortcut-id:
+      in: path
+      schema:
+        type: integer
+      required: true
+      name: shortcutId
+      description: Unique identifier of the shortcut
+    path-parameter-shortcut-ids:
+      in: path
+      schema:
+        type: array
+        items:
+          type: integer
+      required: true
+      name: shortcutIds
+      description: Array of unique identifiers of the shortcut
+    path-parameter-shortcut-source:
+      in: path
+      schema:
+        type: string
+      required: true
+      name: shortcutSource
+      description: Source of the shortcut
+  requestBodies:
+    body-shortcut-dto:
+      description: A response body which contains shortcut dto
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ShortcutDto"
+  responses:
+    200-with-shortcut-dto:
+      description: Query succeeded and resulted with shortcut dto
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ShortcutDto"
+    200-with-shortcut-dtos:
+      description: Query succeeded and resulted with array of shortcut dtos
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/ShortcutDto"
+    302:
+      description: Query succeeded and resulted with redirection
+    404:
+      description: Query failed, because of missing entity
+  schemas:
+    ShortcutDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        source:
+          type: string
+        target:
+          type: string
