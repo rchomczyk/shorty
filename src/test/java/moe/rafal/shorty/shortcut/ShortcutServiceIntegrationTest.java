@@ -1,4 +1,4 @@
-package com.rchomczyk.shorty.shortcut;
+package moe.rafal.shorty.shortcut;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,10 +10,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Collections;
 
-import static com.rchomczyk.shorty.shortcut.ShortcutTestData.SHORTCUT_SOURCE;
-import static com.rchomczyk.shorty.shortcut.ShortcutTestData.SHORTCUT_SOURCE_EMPTY;
-import static com.rchomczyk.shorty.shortcut.ShortcutTestData.SHORTCUT_SOURCE_ORIGIN;
-import static com.rchomczyk.shorty.shortcut.ShortcutTestData.getShortcutDto;
+import static moe.rafal.shorty.shortcut.ShortcutTestData.SHORTCUT_SOURCE;
+import static moe.rafal.shorty.shortcut.ShortcutTestData.SHORTCUT_SOURCE_EMPTY;
+import static moe.rafal.shorty.shortcut.ShortcutTestData.SHORTCUT_SOURCE_ORIGIN;
+import static moe.rafal.shorty.shortcut.ShortcutTestData.getShortcutDto;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @TestInstance(Lifecycle.PER_CLASS)

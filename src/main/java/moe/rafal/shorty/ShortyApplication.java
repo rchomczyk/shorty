@@ -1,4 +1,4 @@
-package com.rchomczyk.shorty;
+package moe.rafal.shorty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

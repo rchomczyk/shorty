@@ -1,4 +1,4 @@
-package com.rchomczyk.shorty.shortcut;
+package moe.rafal.shorty.shortcut;
 
 import org.openapitools.model.ShortcutDto;
 import org.springframework.beans.factory.annotation.Autowired;

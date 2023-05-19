@@ -1,11 +1,10 @@
-package com.rchomczyk.shorty.shortcut;
+package moe.rafal.shorty.shortcut;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.model.ShortcutDto;
 
-import static com.rchomczyk.shorty.shortcut.ShortcutAssertions.assertSimilarityBetween;
-import static com.rchomczyk.shorty.shortcut.ShortcutTestData.getShortcut;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class ShortcutMapperTest {
@@ -18,14 +17,14 @@ class ShortcutMapperTest {
 
 	@Test
 	void intoShouldConvertFlawlessly() {
-		Shortcut shortcut = getShortcut();
+		Shortcut shortcut = ShortcutTestData.getShortcut();
 		ShortcutDto shortcutDto = shortcutMapper.into(shortcut);
 
-		assertSimilarityBetween(shortcut, shortcutDto);
+		ShortcutAssertions.assertSimilarityBetween(shortcut, shortcutDto);
 	}
 
 	@Test
 	void intoShouldHandleNullGracefully() {
-		assertDoesNotThrow(() -> shortcutMapper.into(null));
+		Assertions.assertDoesNotThrow(() -> shortcutMapper.into(null));
 	}
 }

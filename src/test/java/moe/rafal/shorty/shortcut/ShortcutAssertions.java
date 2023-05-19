@@ -1,4 +1,4 @@
-package com.rchomczyk.shorty.shortcut;
+package moe.rafal.shorty.shortcut;
 
 import org.assertj.core.api.Assertions;
 

@@ -1,4 +1,4 @@
-package com.rchomczyk.shorty.shortcut;
+package moe.rafal.shorty.shortcut;
 
 import org.mapstruct.Mapper;
 import org.openapitools.model.ShortcutDto;
