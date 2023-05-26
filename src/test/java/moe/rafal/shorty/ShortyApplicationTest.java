@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 class ShortyApplicationTest {
 
-	private static final int EXPECTED_BEAN_DEFINITION_COUNT = 367;
+	private static final int EXPECTED_BEAN_DEFINITION_COUNT = 202;
 
 	@Test
 	void validateIfContextLoads(ApplicationContext context) {

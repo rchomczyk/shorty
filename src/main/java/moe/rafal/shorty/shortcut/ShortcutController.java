@@ -5,12 +5,10 @@ import org.openapitools.model.ShortcutDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.StreamSupport;
 
-@RestController
 public class ShortcutController implements ShortcutsApi {
 
     private final ShortcutService shortcutService;

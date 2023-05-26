@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>com.rchomczyk</groupId>
+	<groupId>moe.rafal</groupId>
 	<artifactId>shorty</artifactId>
 	<version>1.0.0</version>
 
@@ -51,10 +51,16 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>2.0.1.Final</version>
-			<scope>provided</scope>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.0.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.2.10</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mapstruct</groupId>
@@ -88,7 +94,7 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>6.5.0</version>
+				<version>6.4.0</version>
 				<configuration>
 					<inputSpec>${project.basedir}/src/main/resources/static/openapi-schema.yml</inputSpec>
 				</configuration>
@@ -101,6 +107,8 @@
 							<generatorName>spring</generatorName>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
+								<useSpringBoot3>true</useSpringBoot3>
+								<useSpringController>true</useSpringController>
 							</configOptions>
 						</configuration>
 					</execution>
