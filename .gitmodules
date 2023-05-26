@@ -1,0 +1,3 @@
+[submodule "shorty-frontend"]
+	path = shorty-frontend
+	url = https://github.com/shitzuu/shorty-frontend
